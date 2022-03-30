@@ -10,7 +10,7 @@ abcd^e-fgh*+^*+i-
 
 #############################
 If you want to provide multiple infix to convert to postfix as mentioned below then use below command : 
-python multiinfix2Postfix.py
+python multiInfix2Postfix.py
 
 Sample inputs : 
 Enter Multiple infix expressions line by line: 
@@ -22,5 +22,3 @@ Sample output :
 abcd^e-fgh*+^*+i-
 GA+UR-I^+
 ab*cd-+e+
-
-
