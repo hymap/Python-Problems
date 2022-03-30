@@ -1,4 +1,4 @@
-Finding shortest path in given maze using dijkstra's algorithm
+Finding shortest path in given maze which is having Entry point as E and we need to find exit point using dijkstra's algorithm
 
 Run with below commands :
 
