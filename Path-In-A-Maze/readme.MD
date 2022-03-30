@@ -1,4 +1,4 @@
-Finding short path in given maze
+Finding shortest path in given maze using dijkstra's algorithm
 
 Run with below commands :
 
