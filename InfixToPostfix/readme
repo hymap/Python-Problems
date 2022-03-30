@@ -1,3 +1,17 @@
+If you want to convert single infix to postfix run below command from given files : 
+python infix2Postfix.py
+
+Sample inputs : 
+Enter Multiple infix expressions line by line: 
+a+b*(c^d-e)^(f+g*h)-i
+
+Sample output : 
+abcd^e-fgh*+^*+i-
+
+#############################
+If you want to provide multiple infix to convert to postfix as mentioned below then use below command : 
+python multiinfix2Postfix.py
+
 Sample inputs : 
 Enter Multiple infix expressions line by line: 
 a+b*(c^d-e)^(f+g*h)-i
@@ -9,5 +23,4 @@ abcd^e-fgh*+^*+i-
 GA+UR-I^+
 ab*cd-+e+
 
-Command to run :
-python infix2Postfix.py
+
