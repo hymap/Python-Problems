@@ -2,6 +2,7 @@ Problem Statement :
 Finding a Minimum Weight Spanning Tree using Kruskals algorithm. 
 
 Command to run program :
+
 python FindMWST.py < tree.txt
 
 Useful resources on MWST Kruskals :
