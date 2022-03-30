@@ -2,6 +2,7 @@ Problem Statement :
 Finding a Minimum Weight Spanning Tree using Kruskals algorithm. 
 
 Useful resources on MWST Kruskals :
+
 Jenny’s : 
 https://www.youtube.com/watch?v=EjVHtpWkIho
 
