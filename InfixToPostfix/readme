@@ -1,0 +1,13 @@
+Sample inputs : 
+Enter Multiple infix expressions line by line: 
+a+b*(c^d-e)^(f+g*h)-i
+G+A+(U-R)^I
+a*b+(c-d)+e
+
+Sample output : 
+abcd^e-fgh*+^*+i-
+GA+UR-I^+
+ab*cd-+e+
+
+Command to run :
+python infix2Postfix.py
