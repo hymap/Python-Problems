@@ -7,7 +7,7 @@ python FindMWST.py < tree.txt
 
 or you can run using command 
 
-cat tree1.txt | python FindMWST.py
+cat tree.txt | python FindMWST.py
 
 Data Structures Used
 
