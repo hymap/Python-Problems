@@ -5,6 +5,14 @@ Command to run program :
 
 python FindMWST.py < tree.txt
 
+Data Structures Used
+
+Multilist
+
+Disjoint Sets (a.k.a. UnionFind) (DisjointSet.py)
+
+priority_queue (-5 for sorting, -2 for using the STL)(PriorityQueue.py)
+
 Useful resources on MWST Kruskals :
 
 Jenny’s : 
