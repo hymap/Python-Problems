@@ -1,12 +1,15 @@
 # Python program for Kruskal's algorithm to find
 # Minimum Spanning Tree of a given undirected and weighted graph
- 
+import DisjointSet
+import PriorityQueue
+
 # Class to represent a graph
 class Graph:
  
     def __init__(self):
         #self.V = vertices  # No. of vertices
         self.graph = []  
+        self.sortedGraph = [] 
         # to store graph
         try:
             while True:
@@ -26,37 +29,11 @@ class Graph:
         #3 5 2
         #4 5 2
         #e.g In above example, 2nd field highest number is 5. So vertices is 5+1 including 0. 
-        elem_to_find = 0
         v= max(self.graph, key=lambda item: item[1])
-        if (any(elem_to_find in sublist for sublist in self.graph)):
+        if (any(0 in sublist for sublist in self.graph)):
             self.V = v[1]+1 # No. of vertices
         else:
             self.V = v[1]
- 
-    # Find parent of given vertex
-    def find(self, parent, i):
-        if parent[i] == i:
-            return i
-        return self.find(parent, parent[i])
- 
-    # A function that does union of two sets of x and y
-    # (uses union by rank)
-    def union(self, parent, rank, x, y):
-        xroot = self.find(parent, x)
-        yroot = self.find(parent, y)
-        #print("xroot, yroot, x, y, parent[x],parent[y] ",xroot,yroot, x, y, parent[x],parent[y],rank[xroot],rank[yroot])
-        
-        # If rank is higher then make it as parent
-        if rank[xroot] < rank[yroot]:
-            parent[xroot] = yroot
-        elif rank[xroot] > rank[yroot]:
-            parent[yroot] = xroot
- 
-        # If ranks are same, then make one as root
-        # and increment its rank by one
-        else:
-            parent[yroot] = xroot
-            rank[xroot] += 1
  
     # The main function to construct MST using Kruskal' algorithm
     def KruskalMST(self):
@@ -71,38 +48,35 @@ class Graph:
         e = 0
 
         # Sort all the edges in non-decreasing order of their weight. 
-        self.graph = sorted(self.graph,
-                            key=lambda item: item[2])
- 
-        #print("graph after sort ",self.graph)
-        parent = []
-        rank = []
- 
-        # Create V subsets with single elements
-        for node in range(self.V):
-            #print("node ",node)
-            parent.append(node)
-            rank.append(0)
+        #self.graph = sorted(self.graph,
+        #                    key=lambda item: item[2])
+        j = 0
+        pd = PriorityQueue.PriorityQueue() 
+        while j < len(self.graph):
+            u, v, w = self.graph[j]
+            pd.insert([u, v, w])
+            j = j+1
+        self.sortedGraph = pd.sort()
+
+        #print("graph after sort ",self.sortedGraph)
+        ds = DisjointSet.DisjointSet(self.V)
 
         # Number of edges for MST to be taken is equal to V-1
         while e < self.V - 1:
 
             # Pick the smallest edge and increment
             # the index for next iteration
-            u, v, w = self.graph[i]
-            #print("u, v, w, i ",u, v, w, i )
+            u, v, w = self.sortedGraph[i]
             i = i + 1
-            x = self.find(parent, u)
-            y = self.find(parent, v)
-            #print("x, y ",x, y )
+            x = ds.find(u)
+            y = ds.find(v)
 
             # Avoid x= y as it forms a cycle else valid edge
             if x != y:
                 e = e + 1
                 result.append([u, v, w])
                 #edgesArr.append([u,v])
-                self.union(parent, rank, x, y)
-                #print("Appending adges into result : parent, rank, union, result ", parent, rank, self.union, result)
+                ds.union(x, y)
             # Else discard the edge
  
         #result = sorted(result, key=lambda item: item[0])
